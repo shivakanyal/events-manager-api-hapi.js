@@ -1,6 +1,8 @@
 const Hapi = require("@hapi/hapi");
 const Joi = require("joi");
 
+require("./database/database");
+
 const server = new Hapi.Server({
   host: "localhost",
   port: 3000,
