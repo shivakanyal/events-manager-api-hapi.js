@@ -23,19 +23,20 @@ const User = sequelize.define(
       allowNull: false,
     },
     role: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       defaultValue: "user",
     },
   },
   {
     timestamps: false,
+    freezeTableName: true,
   }
 );
 
-User.sync()
-  .then((res) =>
-    console.log("The table for the User model was just (re)created!")
-  )
-  .catch((err) => console.log(err));
+// User.sync()
+//   .then((res) =>
+//     console.log("The table for the User model was just (re)created!")
+//   )
+//   .catch((err) => console.log(err));
 
 module.exports = User;

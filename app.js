@@ -1,5 +1,6 @@
 const Hapi = require("@hapi/hapi");
 const Joi = require("joi");
+const routes = require("./routes/event");
 
 require("./database/database");
 
@@ -16,6 +17,8 @@ server.start((err) => {
     console.log("Listeing at : ", server.info.uri);
   }
 });
+
+server.route(routes);
 
 server.route({
   method: "GET",

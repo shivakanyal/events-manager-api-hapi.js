@@ -14,23 +14,29 @@ exports.addEvent = async (req, res) => {
     const event = await Event.create(req.payload);
     return res.response(event).code(200);
   } catch (error) {
-    return Boom.badImplementation("terrible implementation");
+    console.log(error);
+    return res.response({ message: "some internal error occured!" }).code(500);
   }
 };
 exports.editEvent = async (req, res) => {
   try {
-    const eventId = req.params.id;
+    const eventId = req.params.eventId;
+    console.log("eventId", eventId);
     await Event.update(req.payload, { where: { eventId } });
     return res.response({ message: "event is updated successfully" });
   } catch (error) {
-    return Boom.badImplementation("terrible implementation");
+    console.log(error);
+    return res.response({ message: "some internal error occured!" }).code(500);
   }
 };
 exports.deleteEvent = async (req, res) => {
   try {
-    const eventId = req.params.id;
+    const eventId = req.params.eventId;
+    console.log("evntId", eventId);
     const event = await Event.findOne({ where: { eventId } });
     await event.destroy();
     return res.response({ message: "event is deleted successfully", event });
-  } catch (error) {}
+  } catch (error) {
+    console.log(err);
+  }
 };

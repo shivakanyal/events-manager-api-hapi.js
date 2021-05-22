@@ -13,12 +13,12 @@ module.exports = [
   },
   {
     method: "PUT",
-    path: "api/events/{eventId}",
+    path: "/api/events/{eventId}",
     handler: event.editEvent,
   },
   {
     method: "DELETE",
-    path: "api/events/{eventId}",
+    path: "/api/events/{eventId}",
     handler: event.deleteEvent,
   },
 ];
