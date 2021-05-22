@@ -55,10 +55,10 @@ const Event = sequelize.define(
   { freezeTableName: true }
 );
 Event.belongsTo(User, { foreignKey: "userId" });
-Event.sync()
-  .then((res) =>
-    console.log("The table for the Event model was just (re)created!")
-  )
-  .catch((err) => console.log(err));
+// Event.sync()
+//   .then((res) =>
+//     console.log("The table for the Event model was just (re)created!")
+//   )
+//   .catch((err) => console.log(err));
 
 module.exports = Event;

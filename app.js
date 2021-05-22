@@ -1,6 +1,6 @@
 const Hapi = require("@hapi/hapi");
 const Joi = require("joi");
-const routes = require("./routes/event");
+const routes = require("./routes/index");
 
 require("./database/database");
 

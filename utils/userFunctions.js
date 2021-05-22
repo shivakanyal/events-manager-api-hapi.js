@@ -16,16 +16,16 @@ const checkValidation = async (email, password) => {
 };
 
 const isAutherized = (token) => {
-  const token = jwt.verify(token, "secretKey");
-  if (token) {
+  let tokenn = jwt.verify(token, "secretKey");
+  if (tokenn) {
     return true;
   } else {
     return false;
   }
 };
 
-const createToken = async (name, email, role) => {
-  const token = await jwt.sign({ name, email, role }, "secretKey", {
+const createToken = (name, email, role) => {
+  let token = jwt.sign({ name, email, role }, "secretKey", {
     expiresIn: "1h",
   });
   return token;
